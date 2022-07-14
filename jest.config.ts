@@ -3,4 +3,5 @@ module.exports = {
     '^.+\\.ts$': ['@swc/jest'],
   },
   verbose: true,
+  modulePathIgnorePatterns: ['./dist'],
 };

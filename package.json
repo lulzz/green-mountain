@@ -5,11 +5,12 @@
   "main": "index.js",
   "scripts": {
     "start": "node dist/server.js",
+    "local:heroku": "rm -rf node_modules && npm install --production && heroku local web",
     "dev": "nodemon server/server.ts",
-    "build": "swc server -d dist",
+    "build": "swc server -d dist && rm ./dist/*.test.js",
     "test": "jest",
     "test:w": "jest --watch",
-    "test:coverage": "jest --coverage"
+    "test:coverage": "rm -rf ./coverage && jest --coverage"
   },
   "keywords": [],
   "author": "",
@@ -30,8 +31,9 @@
     "ts-node": "^10.8.2",
     "typescript": "^4.7.4"
   },
+  "type": "module",
   "engines": {
-    "npm": "8.3.1",
-    "node": "16.13.2"
+    "npm": "8.11.0",
+    "node": "16.16.0"
   }
 }
